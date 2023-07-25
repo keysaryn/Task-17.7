@@ -5,7 +5,6 @@ enter_age = int(input("Введите возраст: "))
 yang_price = 990
 full_price = 1390
 
-
 if amount_ticket > 1:
 
 
