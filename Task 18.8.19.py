@@ -1,26 +1,24 @@
-yang_price = 990
-full_price = 1390
 sum_price = 0
+free = 0
 
-amount_ticket = int(input("Введите количество билетов которые хотите приобрести: "))
+amount_ticket = range(int(input("Введите количество билетов которые хотите приобрести: ")))
 
-enter_age = int(input("Введите возраст: "))
+for i in amount_ticket:
+    age = int(input(f"\nВведите возраст для {i+1} посетителя: "))
 
-if enter_age < 18:
-    print("Лицам до 18 вход бесплатный!", list(range(0,amount_ticket)))
+    if age < 18:
+        print("\n\t\tПосетителям до 18 вход бесплатный!")
 
-elif 18 >= enter_age < 25:
-    print("")
-    sum_price += yang_price
+    elif 18 <= age < 25:
+        sum_price += 990
 
+    elif age >= 25:
+        sum_price += 1390
 
+if len(amount_ticket) > 3:
+    print("\nВам доступна 10% скидка")
+    sum_price = sum_price * 90 / 100
+    print(f"\nСумма с учетом скидки за {len(amount_ticket)} посетителей: {sum_price}")
 
-# if amount_ticket > 1:
-
-
-# if amount_ticket > 3:
-#     print("Вам доступна 10% скидка")
-#     sum_order = sum_order * 90 / 100
-#     print("Сумма с учетом скидки: ")
-
-
+if len(amount_ticket) < 3:
+    print(f"\nСумма за {len(amount_ticket)} посетителей: {sum_price}")
